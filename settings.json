@@ -1,0 +1,39 @@
+{
+	"globals": {
+		"serverPrefix": "kenneth",
+		"reposPath": "\/home\/kenneth\/projects\/",
+		"trigger": [
+			"file.change",
+			"git.commit",
+			"git.push"
+		],
+		"excludes": [
+			".git",
+			"logs",
+			"\/*.swp",
+			"node_modules"
+		],
+		"args" : [
+			"-Pav",
+			"--progress",
+			"--delete-after",
+			"--stats"
+		]
+	},
+	"repos": {
+		"repo-a": {
+			"excludes": [
+				"public-src",
+				"Zend"
+			],
+			"beforeSync": [
+				"make -j4"
+			]
+		},
+		"repo-b": {
+			"excludes": [
+				"public-src"
+			]
+		}
+	}
+}
